@@ -1,3 +1,5 @@
+import 'package:catalog/pages/homepage.dart';
+import 'package:catalog/pages/login.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -9,12 +11,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bringvegetables(thaila:true);
+
     return MaterialApp(
-      home: Material(
-        child: Container(
-          child: Text("Hello world!"),
-        ),
+      
+      themeMode: ThemeMode.dark,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
       ),
+      initialRoute: "/home",
+      routes: {
+        "/home": (context)=>HomePage(),
+        "/login": (context)=>loginpage(),
+      },
     );
   }
+}
+
+bringvegetables({int rupees = 100,@required bool thaila=false}) {
+  //take cycle
+  //Goto sector 16
 }
