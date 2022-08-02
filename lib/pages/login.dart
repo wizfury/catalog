@@ -13,15 +13,30 @@ class loginpage extends StatelessWidget {
             "assets/images/login.png",
             fit: BoxFit.cover,
           ),
+          SizedBox(
+            height: 20,
+          ),
           Text(
             "Welcome",
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold
-            ),
+            style: newMethod(),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          TextFormField(
+              decoration: InputDecoration(hintText: "Enter the username",labelText: "Username"),
           )
+          
         ],
         ),
     );
+  }
+
+  TextStyle newMethod() {
+    return TextStyle(
+            fontSize: 22,
+            color: Colors.black,
+            fontWeight: FontWeight.bold
+          );
   }
 }
