@@ -1,5 +1,6 @@
 import 'package:catalog/pages/homepage.dart';
 import 'package:catalog/pages/login.dart';
+import 'package:catalog/util/routes.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     bringvegetables(thaila: true);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
@@ -25,8 +27,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/home",
       routes: {
-        "/home": (context) => HomePage(),
-        "/login": (context) => loginpage(),
+        myroutes.homeroute: (context) => HomePage(),
+        myroutes.loginroute: (context) => loginpage(),
       },
     );
   }
