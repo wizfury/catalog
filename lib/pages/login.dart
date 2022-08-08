@@ -51,32 +51,35 @@ class _loginpageState extends State<loginpage> {
               ),
               SizedBox(height: 20),
 
-              InkWell(
-                onTap: () async{
-                  setState(() {
-                    changeButton = true;
-                  });
-                  await Future.delayed(Duration(seconds: 1));
-                  Navigator.pushNamed(context, myroutes.homeroute);
-                },
-                child: AnimatedContainer(
-                  duration: Duration(seconds: 1),
-                  width: changeButton ? 50 : 150,
-                  height: 50,
-                  alignment: Alignment.center,
-                  child: changeButton
-                      ? Icon(Icons.done)
-                      : Text(
-                          "Login",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        ),
-                  decoration: BoxDecoration(
-                      color: Colors.deepPurple,
-                      borderRadius:
-                          BorderRadius.circular(changeButton ? 20 : 8)),
+              Material(
+                color: Colors.deepPurple,
+                borderRadius:
+                            BorderRadius.circular(changeButton ? 20 : 8),
+                child: InkWell(
+                  splashColor: Colors.red,
+                  onTap: () async{
+                    setState(() {
+                      changeButton = true;
+                    });
+                    await Future.delayed(Duration(seconds: 1));
+                    Navigator.pushNamed(context, myroutes.homeroute);
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(seconds: 1),
+                    width: changeButton ? 50 : 150,
+                    height: 50,
+                    alignment: Alignment.center,
+                    child: changeButton
+                        ? Icon(Icons.done)
+                        : Text(
+                            "Login",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18),
+                          ),
+                     
+                  ),
                 ),
               )
               // ElevatedButton(
