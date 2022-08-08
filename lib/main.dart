@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bringvegetables(thaila: true);
+    
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      initialRoute: "/home",
+      initialRoute: myroutes.loginroute,
       routes: {
         myroutes.homeroute: (context) => HomePage(),
         myroutes.loginroute: (context) => loginpage(),
@@ -34,7 +34,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-bringvegetables({int rupees = 100, @required bool thaila = false}) {
-  //take cycle
-  //Goto sector 16
-}
+

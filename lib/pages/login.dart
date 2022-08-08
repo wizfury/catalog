@@ -29,7 +29,7 @@ class _loginpageState extends State<loginpage> {
                 height: 20,
               ),
               Text(
-                "Welcome, $name",
+                changeButton ? "Welcome, $name" : "welcome",
                 style: newMethod(),
               ),
               SizedBox(
@@ -53,26 +53,30 @@ class _loginpageState extends State<loginpage> {
 
               InkWell(
                 onTap: () {
-                  //Navigator.pushNamed(context, myroutes.homeroute);
                   setState(() {
                     changeButton = true;
                   });
+                  Future.delayed(Duration(seconds: 1));
+                  Navigator.pushNamed(context, myroutes.homeroute);
                 },
                 child: AnimatedContainer(
                   duration: Duration(seconds: 1),
-                  width: changeButton?50:150,
+                  width: changeButton ? 50 : 150,
                   height: 50,
                   alignment: Alignment.center,
-                  child: changeButton?Icon(Icons.done):Text(
-                    "Login",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
-                  ),
+                  child: changeButton
+                      ? Icon(Icons.done)
+                      : Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                        ),
                   decoration: BoxDecoration(
                       color: Colors.deepPurple,
-                      borderRadius: BorderRadius.circular(changeButton?20:8)),
+                      borderRadius:
+                          BorderRadius.circular(changeButton ? 20 : 8)),
                 ),
               )
               // ElevatedButton(
