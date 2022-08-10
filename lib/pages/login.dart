@@ -15,16 +15,17 @@ class _loginpageState extends State<loginpage> {
   bool changeButton = false;
   final _formkey = GlobalKey<FormState>();
 
-  moveToHome(BuildContext context) async
-  {
-     setState(() {
-                        changeButton = true;
-                      });
-                      await Future.delayed(Duration(seconds: 1));
-                      await Navigator.pushNamed(context, myroutes.homeroute);
-                      setState(() {
-                        changeButton = false;
-                      });
+  moveToHome(BuildContext context) async {
+    if (_formkey.currentState!.validate()) {
+      setState(() {
+        changeButton = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, myroutes.homeroute);
+      setState(() {
+        changeButton = false;
+      });
+    }
   }
 
   @override
@@ -45,7 +46,7 @@ class _loginpageState extends State<loginpage> {
                   height: 20,
                 ),
                 Text(
-                  changeButton ? "Welcome, $name" : "welcome",
+                  changeButton ? "Welcome, $name" : "Welcome",
                   style: newMethod(),
                 ),
                 SizedBox(
@@ -56,6 +57,12 @@ class _loginpageState extends State<loginpage> {
                     hintText: "Enter the username",
                     labelText: "Username",
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Username cannot be empty";
+                    }
+                    return null;
+                  },
                   onChanged: (value) {
                     name = value;
                     setState(() {});
@@ -64,6 +71,15 @@ class _loginpageState extends State<loginpage> {
                 TextFormField(
                   decoration: InputDecoration(
                       hintText: "Password", labelText: "Password"),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Password cannot be empty";
+                    }
+                    if (value.length < 6) {
+                      return "Password length should be atleast 6";
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(height: 20),
 
