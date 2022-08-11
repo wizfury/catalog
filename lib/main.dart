@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
-      
+        appBarTheme: AppBarTheme(color: Colors.white,),
+        iconTheme: IconThemeData(color: Colors.black)
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,

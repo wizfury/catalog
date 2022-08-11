@@ -8,8 +8,7 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return Drawer(
-      child: Container(
-        
+      child: Container( 
         child: ListView(
           children: [
             Padding(padding: EdgeInsets.all(20)),
