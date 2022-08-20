@@ -1,3 +1,4 @@
+import 'package:catalog/models/catalog.dart';
 import 'package:catalog/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +12,10 @@ class HomePage extends StatelessWidget {
        
         title: Center(child:Text("Catalog App")),
       ),
-      body: Center(
-        child: Container(
-          child: Text(context.runtimeType.toString()),
-        ),
+      body: ListView.builder(itemCount: CatalogModel.items.length,
+      itemBuilder: (context, index) {
+        return ItemWidget();
+      },)
       ),
       drawer: MyDrawer(),
     );
